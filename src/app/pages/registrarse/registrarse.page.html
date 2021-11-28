@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar> <ion-buttons slot="start">
+    <ion-back-button
+    defaultHref="/"
+    text="Atrás"
+    color="primary"
+    mode="ios"
+    ></ion-back-button>
+  </ion-buttons>
+    <ion-title class="login">LOGIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-img src="assets/redondi.png" style= "height: 200px; padding-top: 5px; padding-bottom: 5px;"></ion-img>
+  
+    <form #formulario="ngForm" (ngSubmit) ="onSubmit()">
+      <!--formulario
+      <ion-list-header>
+        <ion-label>Formulario Válido: {{formulario.valid}} </ion-label>
+      </ion-list-header>
+      --> 
+      <ion-item>
+        <ion-label class="letras" position="floating">Nombre de Usuario:</ion-label>
+        <ion-input type="text" name="nusario" [(ngModel)]="usuario.nusuario" required ></ion-input>
+      </ion-item>
+      <br>
+      
+      <ion-item>
+        <ion-label class="letras2" position="floating" >Email: </ion-label>
+        <ion-input type="email" placeholder="Email"
+                  name="email" [(ngModel)]= "usuario.email"
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  required>
+        </ion-input>
+      </ion-item>
+      <br>
+    
+      <ion-item>
+        <ion-label class="letras" position="floating">Contraseña: </ion-label>
+        <ion-input type="password" placeholder="Contraseña"
+                  name="password" [(ngModel)]= "usuario.password"
+                  required>
+        </ion-input>
+      </ion-item>
+      <br>
+    </form>
+    <ion-card-content>
+      <ion-button [disabled] ="formulario.invalid"
+          type="submit" expand="block" routerLink="/inicio">
+        Enviar Datos
+      </ion-button>
+    </ion-card-content>
+  
+
+</ion-content>
